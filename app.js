@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import gradesRouter from './routes/gradeRouter.js';
 
 import { db } from './models/index.js';
 
@@ -27,6 +28,8 @@ app.use(
     origin: 'https://frontenddesafio.herokuapp.com/',
   })
 );
+
+app.use(gradesRouter);
 
 app.get('/', (req, res) => {
   res.send('API em execucao');
